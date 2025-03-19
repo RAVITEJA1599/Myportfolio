@@ -31,7 +31,7 @@ resource "aws_s3_bucket_acl" "example" {
   acl    = "public-read"
 }
 
-#this is how an index.html(object) is been uploaded to bucket
+#uploading index.html to bucket
 
 resource "aws_s3_object" "index" {
   bucket = aws_s3_bucket.mybucket.id
@@ -41,6 +41,8 @@ resource "aws_s3_object" "index" {
   content_type = "text/html"
 }
 
+#uploading error.html to bucket
+
 resource "aws_s3_object" "error" {
   bucket = aws_s3_bucket.mybucket.id
   key    = "error.html"
@@ -48,6 +50,8 @@ resource "aws_s3_object" "error" {
   acl = "public-read"
   content_type = "text/html"
 }
+
+#uploading profile.jpg to bucket
 
 resource "aws_s3_object" "profile" {
   bucket = aws_s3_bucket.mybucket.id
